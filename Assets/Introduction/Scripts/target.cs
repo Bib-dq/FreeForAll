@@ -27,7 +27,7 @@ public class target : MonoBehaviour
 
         if (collision2D.gameObject.tag == "Projectile")
         {
-            statsM.health -= Wizard.Instance.Stats.fireballDamage;
+            statsM.health -= Wizard.Stats.fireballDamage;
             if (statsM.health <= 0)
             {
                 float x = 15.6f * Random.value - 7.8f;
@@ -41,6 +41,6 @@ public class target : MonoBehaviour
     void OnDestroy()
     {
         HUD.score += 1;
-        Wizard.Instance.Stats.GainXP(40 / targetTime);
+        Wizard.Stats.GainXP(40 / targetTime);
     }
 }

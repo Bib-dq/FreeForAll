@@ -24,8 +24,7 @@ public class HUD : MonoBehaviour
 
     void Update()
     {
-        Wizard w = Wizard.Instance;
-        Playerstats s = w.Stats;
+        Playerstats s = Wizard.Stats;
         float MaxMana = s.MaxMana;
         int MaxHealth = s.MaxHealth;
         float mana = s.mana;

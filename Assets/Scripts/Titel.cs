@@ -19,4 +19,15 @@ public class Titel : MonoBehaviour
     {
         GameManager.GoToGame();
     }
+
+    public void GoToNewGame()
+    {
+        Wizard.Stats = new Playerstats();
+        GameManager.GoToGame();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

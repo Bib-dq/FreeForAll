@@ -7,11 +7,15 @@ public class Wizard : MonoBehaviour
     private float lastFireTime = 0; 
     private Vector3 lastMovement;
     private Animator animator;
-    public Playerstats Stats;
+    public static Playerstats Stats;
     
     void Start()
     {
-        Stats  = new Playerstats();
+        
+        if (Stats == null)
+        {
+            Stats = new Playerstats();
+        }
         Instance = this; // Singleton instance erzeugen auf diesem Objekt.
         lastFireTime = -Stats.fireRate; 
         animator = GetComponent<Animator>();
