@@ -5,16 +5,6 @@ using UnityEngine;
 public class Titel : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void GoToGame()
     {
         GameManager.GoToGame();
@@ -29,5 +19,9 @@ public class Titel : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void GoToHub()
+    {
+        GameManager.GoToHub();
     }
 }

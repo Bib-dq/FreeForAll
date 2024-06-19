@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameStates {inTitel, inGame, paused};
+    public enum GameStates {inTitel, inGame, paused, hub};
     public GameStates state = GameStates.inTitel;    
     public static GameManager instance;
-    public float GameTimer = 5;
+    public float GameTimer = 60;
     void Start()
     {
         if (instance == null)
@@ -33,11 +33,14 @@ public class GameManager : MonoBehaviour
             {
                 SceneManager.LoadScene("Titel");
                 state = GameStates.inTitel; 
-                GameTimer = 5;
+                GameTimer = 60;
             }
         }
 
-        Input.GetKey(KeyCode.Escape);
+        if(Input.GetKey(KeyCode.Escape) && state == GameStates.inGame)
+        {
+            Pause.Instance.gameObject.SetActive(true);
+        }
     }
     public static void GoToGame()
     {
@@ -45,4 +48,15 @@ public class GameManager : MonoBehaviour
         instance.state = GameStates.inGame;
     }
 
+    public static void GoToHub()
+    {
+        SceneManager.LoadScene("Hub");
+        instance.state = GameStates.hub;
+    }
+
+    public static void GoToTitel()
+    {
+        SceneManager.LoadScene("Titel");
+        instance.state = GameStates.inTitel;
+    }
 }

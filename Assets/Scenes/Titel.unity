@@ -297,7 +297,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1352750315}
         m_TargetAssemblyTypeName: Titel, Assembly-CSharp
-        m_MethodName: GoToGame
+        m_MethodName: GoToHub
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
