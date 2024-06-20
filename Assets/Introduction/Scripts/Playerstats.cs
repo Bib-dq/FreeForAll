@@ -33,7 +33,8 @@ public class Playerstats
             if(fireRate > 0.1f)
             {    
                 fireRate -= 0.005f;
-            } else
+            } 
+            else
             {
                 fireRate += 0;
             }

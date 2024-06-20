@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    public static GameObject Instance;
     void Start()
     {
         gameObject.SetActive(false);
+        GameManager.instance.pauseMenu = this;
     }
     
     public void GoToTitel()
@@ -15,13 +15,18 @@ public class Pause : MonoBehaviour
         GameManager.GoToTitel();
     }
 
-    public void Continue()
+    public void ToggleActive()
     {
-        gameObject.SetActive(false);
-    }
-
-    public void GoPause() 
-    { 
-        gameObject.SetActive(true);
+        gameObject.SetActive(!gameObject.activeSelf);
+        if (gameObject.activeSelf)
+        {
+            GameManager.instance.state = GameManager.GameStates.paused;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            GameManager.instance.state=GameManager.GameStates.inGame;
+            Time.timeScale = 1;
+        }
     }
 }
