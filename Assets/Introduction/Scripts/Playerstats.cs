@@ -11,7 +11,7 @@ public class Playerstats
     public float mana = 100f; 
     public float healthRegen = Time.deltaTime * 0.1f;
     public float manaRegen = Time.deltaTime * 0.3f;
-    public float fireballDamage = 10f;
+    public float fireballDamage = 5f;
     public float needForLevel = 100f;
 
     public float erfahrungspunkt = 0f;
@@ -27,7 +27,7 @@ public class Playerstats
 
     public void SkillPointUse()
     {
-        switch ((int)(Random.value*4))
+        switch ((int)(Random.value*5))
         {
             case 0:        
             if(fireRate > 0.1f)
@@ -49,6 +49,9 @@ public class Playerstats
             break;
             case 3:
             movementspeed += 0.05f;
+            break;
+            case 4:
+            fireballDamage += 1f;
             break;
         }
     }

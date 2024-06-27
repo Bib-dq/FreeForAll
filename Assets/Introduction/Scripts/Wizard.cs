@@ -8,6 +8,7 @@ public class Wizard : MonoBehaviour
     private Vector3 lastMovement;
     private Animator animator;
     public static Playerstats Stats;
+    public float timer = 5;
     
     void Start()
     {
@@ -81,9 +82,24 @@ public class Wizard : MonoBehaviour
             Stats.health = Stats.MaxHealth;
         }
 
+        timer -= Time.deltaTime;
+        Debug.Log(timer);
     }
     public void stopAttacking()
     {
         animator.SetBool("Attacking", false);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision2D)
+    {
+        if(collision2D.gameObject.tag == "Enemy")
+        {
+            
+            if(timer >= 0)
+            {
+                Stats.health = Stats.health;
+            }
+            timer = 5;
+        }
     }
 }
