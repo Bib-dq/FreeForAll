@@ -39,6 +39,11 @@ public class GameManager : MonoBehaviour
             {
                 pauseMenu.ToggleActive();
             }
+            if(Wizard.Stats.health == 0)
+            {
+                GoToTitel();
+                GameTimer = 60;
+            }
         }
 
         if (state == GameStates.inTitel)
@@ -52,6 +57,7 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
         instance.state = GameStates.inGame;
+        Wizard.Stats.health = Wizard.Stats.MaxHealth;
     }
 
     public static void GoToHub()
