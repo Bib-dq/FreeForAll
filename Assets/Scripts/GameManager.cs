@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
                 pauseMenu.ToggleActive();
             }
             if(Wizard.Stats.health == 0)
-            {
+            {                
                 GoToTitel();
                 GameTimer = 60;
             }

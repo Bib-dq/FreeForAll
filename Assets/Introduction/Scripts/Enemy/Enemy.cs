@@ -7,14 +7,14 @@ public class Enemy : MonoBehaviour
     public GameObject enemyPrefab;
     public float targetTime = 0f;
     public Minionstats statsM;
-    // Start is called before the first frame update
+    
     void Start()
     {
         statsM = new Minionstats();
         targetTime = 0;   
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         Vector3 playerPosition = Wizard.Instance.transform.position;
@@ -24,14 +24,11 @@ public class Enemy : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision2D)
     {
-        float x = Random.Range(-10,10);
-        float y = Random.Range(-10,10);
         if (collision2D.gameObject.tag == "Projectile")
         {
             statsM.health -= Wizard.Stats.fireballDamage;
             if (statsM.health <= 0)
             {
-                Instantiate(enemyPrefab, new Vector3(x, y,0), Quaternion.identity);
                 Destroy(collision2D.gameObject);
                 Destroy(gameObject);
             }  
@@ -46,7 +43,6 @@ public class Enemy : MonoBehaviour
             }
             if (statsM.health <= 0)
             {
-                Instantiate(enemyPrefab, new Vector3(x, y,0), Quaternion.identity);
                 Destroy(gameObject);
             }
             return;

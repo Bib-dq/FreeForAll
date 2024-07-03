@@ -5,7 +5,7 @@ using UnityEngine;
 public class Minionstats
 {
     public float health = Random.Range(5,10);
-    public float speed = 1f;
-    public float damage = 10f;
+    public float speed = Random.Range(0.5f,1.5f);
+    public float damage = Random.Range(6, 11);
     
 }

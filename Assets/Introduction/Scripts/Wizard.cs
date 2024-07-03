@@ -67,7 +67,7 @@ public class Wizard : MonoBehaviour
             obj.GetComponent<Feuerball>().direction = lastMovement;
             lastFireTime = Time.time; 
             animator.SetBool("Attacking", true);
-            Stats.mana -= 10;
+            Stats.mana -= Stats.fireballDamageManaCost;
         }
         if(Stats.mana < Stats.MaxMana)
         {
@@ -83,7 +83,6 @@ public class Wizard : MonoBehaviour
         }
 
         timer -= Time.deltaTime;
-        Debug.Log(timer);
     }
     public void stopAttacking()
     {
